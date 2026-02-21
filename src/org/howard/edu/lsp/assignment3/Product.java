@@ -14,7 +14,9 @@ public class Product {
     private String category;
     private String priceRange;
 
-    // Constructor to initialize a Product object.
+    /**
+     * Constructor to initialize a Product object.
+     */
     public Product(int productId, String name, double price, String category) {
         this.productId = productId;
         this.name = name;
@@ -22,12 +24,15 @@ public class Product {
         this.category = category;
     }
 
-    // Round-half-up to exactly two decimal places.
+    /**
+     * Requirement: Round-half-up to exactly two decimal places.
+     * This uses the final rounded price for spec compliance.
+     */
     public void roundPrice() {
         this.price = this.price.setScale(2, RoundingMode.HALF_UP);
     }
 
-    // Encapsulation with getters and setters
+    // Getters and Setters - This is "Encapsulation"
     public int getProductId() { return productId; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -38,7 +43,9 @@ public class Product {
     public String getPriceRange() { return priceRange; }
     public void setPriceRange(String priceRange) { this.priceRange = priceRange; }
 
-    // Format the product back into a CSV line for the Load step.
+    /**
+     * Formats the product back into a CSV line for the Load step.
+     */
     @Override
     public String toString() {
         return productId + "," + name + "," + String.format("%.2f", price) + "," + category + "," + priceRange;

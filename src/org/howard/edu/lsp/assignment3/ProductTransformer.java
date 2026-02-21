@@ -2,7 +2,10 @@ package org.howard.edu.lsp.assignment3;
 
 import java.math.BigDecimal;
 
-// ProductTransformer handles the business logic for the ETL process by encapsulating the transformation rules like discounting and category updates.
+/**
+ * ProductTransformer handles the business logic for the ETL process.
+ * It encapsulates the transformation rules like discounting and category updates.
+ */
 public class ProductTransformer {
 
     /**
@@ -21,10 +24,12 @@ public class ProductTransformer {
             p.setPrice(p.getPrice().multiply(new BigDecimal("0.90")));
         }
 
-        // Apply Rounding before the category and range checks
+        // Apply Rounding (Requirement: Round-half-up to 2 decimal places)
+        // PROF FEEDBACK FIX: Round BEFORE the category and range checks
         p.roundPrice();
 
         // 3. Category change for Premium Electronics
+        // Logic: Strictly > $500.00 AND original category was "Electronics"
         if (wasElectronics && p.getPrice().compareTo(new BigDecimal("500.00")) > 0) {
             p.setCategory("Premium Electronics");
         }
@@ -33,7 +38,11 @@ public class ProductTransformer {
         p.setPriceRange(determinePriceRange(p.getPrice()));
     }
 
-    // Helper method to determine the price range based on the final rounded price.
+    /**
+     * Helper method to determine the price range based on the final rounded price.
+     * * @param price The final rounded price of the product.
+     * @return A string representing the PriceRange (Low, Medium, High, or Premium).
+     */
     private String determinePriceRange(BigDecimal price) {
         BigDecimal ten = new BigDecimal("10.00");
         BigDecimal hundred = new BigDecimal("100.00");
