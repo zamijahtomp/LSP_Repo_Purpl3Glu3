@@ -1,0 +1,3 @@
+# Answers.md
+
+My persepctive had drastically changed. I was one of those people who couldn't stand Gen AI when it first rolled out, but tools like Gemini and Claude have only saved me time and energy. Truthfully, technology has only ever been made to assist us, and the problem isn't AI itself but how people use it. I think I made great use of my AI tools with this course, helping me supplement my learning when I just wouldn't have the time to do it on my own. I plan to continue using tools to supplement my workflow and ultimately get a deeper understaning for whatever it is I wish to learn more about, not just computer science stuff but even every day tasks.

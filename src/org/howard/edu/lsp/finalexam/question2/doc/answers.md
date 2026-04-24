@@ -1,0 +1,3 @@
+# Answers.md
+
+The Template Method pattern is utilized in the Report abstract class through the generateReport() method, which establishes a final, immutable sequence of steps: loadData, formatHeader, formatBody, and formatFooter. By making this method final, the algorithm's skeleton is preserved while allowing StudentReport and CourseReport to provide specific implementations for each step. This design promotes code reuse and ensures all reports follow the university's required output format.
